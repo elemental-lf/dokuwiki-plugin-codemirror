@@ -86,6 +86,7 @@ jQuery(function() {
         jsp: {name: 'htmlembedded', mime: 'application/x-jsp',
               deps: ['clike']},
         jsx: {name: 'jsx'},
+        jq: {name: 'javascript'},
         julia: {name: 'julia'},
         kotlin: {name: 'clike', mime: 'text/x-kotlin'},
         latex: {name: 'stex'},
