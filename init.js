@@ -346,7 +346,8 @@ jQuery(function() {
     }
 
     if (JSINFO.plugin_codemirror.codesyntax.toString() === '1') {
-        jQuery('#dokuwiki__content pre.code').each(function(index, element) {
+        jQuery('#dokuwiki__content pre.code, ' +
+               '#dokuwiki__content pre > code').each(function(index, element) {
             var classNames = element.className.split(' ');
             jQuery.each(classNames, function(index, className) {
                 if (!codeModes[className]) {
