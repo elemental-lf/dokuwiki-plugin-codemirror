@@ -67,6 +67,7 @@ class action_plugin_codemirror extends DokuWiki_Action_Plugin {
             'type' => 'text/javascript',
             'charset' => 'utf-8',
             'src' => "$base_url/dist/scripts.min.js?v=$version",
+            'defer' => 'defer',
         );
     }
 
