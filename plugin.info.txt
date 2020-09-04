@@ -1,7 +1,7 @@
 base   codemirror
-author Albert Gasset
+author Albert Gasset (fix by CosmoCode)
 email  albertgasset@fsfe.org
-date   2017-05-01
+date   2020-07-16
 name   CodeMirror plugin
 desc   Editor with syntax highlighting
 url    https://github.com/albertgasset/dokuwiki-plugin-codemirror
