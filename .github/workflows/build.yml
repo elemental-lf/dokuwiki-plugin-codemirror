@@ -21,13 +21,18 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npx grunt dist
-    - name: Create Release
+    - name: Delete Last Release
+      uses: ame-yu/action-delete-latest-release@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create New Release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: ./dokuwiki-plugin-codemirror.tar.gz
         asset_name: dokuwiki-plugin-codemirror.tar.gz
-        tag: master
+        tag: latest
         overwrite: true
         release_name: "Automatic Release"
         body: "Automatic build of the latest code in master"
+
