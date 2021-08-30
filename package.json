@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "codemirror": "^5.54.0",
+    "codemirror": "^5.62.3",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-compress": "^1.4.1",
