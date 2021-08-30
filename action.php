@@ -34,10 +34,11 @@ class action_plugin_codemirror extends DokuWiki_Action_Plugin {
         $info = $this->getInfo();
         $version = str_replace('-', '', $info['date']);
         $base_url = DOKU_BASE . 'lib/plugins/codemirror';
-        $mode_acronym = new Doku_Parser_Mode_acronym(array_keys(getAcronyms()));
+        $acronyms = array_keys(getAcronyms());
+        usort($acronyms, array($this,'compare'));
 
         $jsinfo = array(
-            'acronyms' => $mode_acronym->acronyms,
+            'acronyms' => $acronyms,
             'baseURL' => $base_url,
             'camelcase' => (bool) $conf['camelcase'],
             'codesyntax' => $this->getConf('codesyntax'),
@@ -66,6 +67,30 @@ class action_plugin_codemirror extends DokuWiki_Action_Plugin {
             'type' => 'text/javascript',
             'charset' => 'utf-8',
             'src' => "$base_url/dist/scripts.min.js?v=$version",
+            'defer' => 'defer',
         );
+    }
+
+    /**
+     * copied from \dokuwiki\Parsing\ParserMode\Acronym
+     *
+     * sort callback to order by string length descending
+     *
+     * @param string $a
+     * @param string $b
+     *
+     * @return int
+     */
+    protected function compare($a, $b)
+    {
+        $a_len = strlen($a);
+        $b_len = strlen($b);
+        if ($a_len > $b_len) {
+            return -1;
+        } elseif ($a_len < $b_len) {
+            return 1;
+        }
+
+        return 0;
     }
 }
